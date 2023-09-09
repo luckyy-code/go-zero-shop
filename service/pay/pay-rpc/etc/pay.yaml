@@ -1,0 +1,32 @@
+Name: pay.rpc
+ListenOn: 0.0.0.0:9003
+Mode: dev
+Etcd:
+  Hosts:
+  - 0.0.0.0:2379
+  Key: pay.rpc
+
+
+Mysql:
+  DataSource: root:1234abc.@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&parseTime=true
+CacheRedis:
+  - Host: 0.0.0.0:6379
+    Type: node
+    Pass:
+
+UserRpc:
+  Etcd:
+    Hosts:
+      - 0.0.0.0:2379
+    Key: user.rpc
+
+OrderRpc:
+  Etcd:
+    Hosts:
+      - 0.0.0.0:2379
+    Key: order.rpc
+
+Prometheus:
+  Host: 0.0.0.0
+  Port: 9093
+  Path: /metrics
